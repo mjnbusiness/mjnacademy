@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJN Academy — Request Access</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.req-page {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+}
+
+/* MINI HEADER */
+.mini-header {
+  padding: 1.25rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border); background: var(--nav); backdrop-filter: blur(16px);
+}
+.mini-header .logo { font-size: 1.3rem; font-weight: 800; letter-spacing: -.04em; }
+.mini-header .dot  { color: var(--accent); }
+
+/* PROGRESS STEPS */
+.steps-bar {
+  display: flex; justify-content: center; gap: 0;
+  padding: 2.5rem 2rem 0;
+}
+.step {
+  display: flex; align-items: center; gap: 0;
+}
+.step-bubble {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .78rem; font-weight: 700;
+  background: var(--card); border: 2px solid var(--border); color: var(--text2);
+  transition: all .3s; flex-shrink: 0;
+}
+.step.done .step-bubble   { background: var(--green); border-color: var(--green); color: #fff; }
+.step.active .step-bubble { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 0 0 4px rgba(255,107,0,.2); }
+.step-label { font-size: .72rem; color: var(--text2); margin-top: .35rem; text-align: center; font-weight: 500; }
+.step-connector { width: 60px; height: 2px; background: var(--border); margin: 0 .25rem; margin-top: -5px; flex-shrink: 0; }
+.step-connector.done { background: var(--green); }
+.step-wrap { display: flex; flex-direction: column; align-items: center; }
+
+/* FORM AREA */
+.req-body { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 3rem 2rem 5rem; }
+.req-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 2.5rem;
+  width: 100%; max-width: 600px;
+}
+.req-card-hd { margin-bottom: 2rem; }
+.req-card-hd .pre { font-size: .72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; }
+.req-card-hd h2 { font-size: 1.7rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: .5rem; }
+.req-card-hd p  { color: var(--text2); font-size: .9rem; line-height: 1.7; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.info-banner {
+  display: flex; gap: .75rem; align-items: flex-start;
+  background: rgba(255,107,0,.07); border: 1px solid rgba(255,107,0,.2);
+  border-radius: 10px; padding: 1rem; margin-bottom: 1.5rem;
+  font-size: .84rem; color: rgba(255,255,255,.75);
+}
+.info-banner i { color: var(--accent); flex-shrink: 0; margin-top: .1rem; }
+
+.success-state {
+  text-align: center; padding: 2rem 1rem; display: none;
+}
+.success-icon {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: rgba(34,197,94,.12); border: 2px solid rgba(34,197,94,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; color: var(--green); margin: 0 auto 1.5rem;
+}
+.success-state h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: .5rem; }
+.success-state p  { color: var(--text2); font-size: .9rem; }
+
+@media (max-width: 600px) {
+  .steps-bar { gap: 0; }
+  .step-connector { width: 30px; }
+  .form-row { grid-template-columns: 1fr; }
+  .req-card { padding: 1.5rem; }
+}
+</style>
+</head>
+<body class="req-page">
+
+<!-- MINI HEADER -->
+<div class="mini-header">
+  <div class="logo">MJN<span class="dot">.</span>Academy</div>
+  <a href="login.html" class="btn btn-ghost btn-sm"><i class="fa-regular fa-user"></i> Already have an account?</a>
+</div>
+
+<!-- STEPS -->
+<div class="steps-bar">
+  <div class="step-wrap">
+    <div class="step done"><div class="step-bubble"><i class="fa-solid fa-check"></i></div></div>
+    <div class="step-label">Your Info</div>
+  </div>
+  <div class="step-connector done"></div>
+  <div class="step-wrap">
+    <div class="step active"><div class="step-bubble">2</div></div>
+    <div class="step-label">Details</div>
+  </div>
+  <div class="step-connector"></div>
+  <div class="step-wrap">
+    <div class="step"><div class="step-bubble">3</div></div>
+    <div class="step-label">Review</div>
+  </div>
+</div>
+
+<!-- FORM BODY -->
+<div class="req-body">
+  <div class="req-card fade-up">
+    <div class="req-card-hd">
+      <p class="pre"><i class="fa-solid fa-key"></i> Step 2 of 3</p>
+      <h2>Request Access</h2>
+      <p>Courses are invite-approved. Submit your details and our team will reach out within 24 hours to confirm your enrollment.</p>
+    </div>
+
+    <div class="info-banner">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>Access to courses is manual. After submitting, an admin will review your request and contact you with payment details and your login credentials.</span>
+    </div>
+
+    <div class="alert ok show" style="display:none" id="req-success">
+      <i class="fa-solid fa-circle-check"></i>
+      Request submitted! We'll be in touch within 24 hours.
+    </div>
+
+    <form id="req-form">
+      <div class="form-row">
+        <div class="fg">
+          <label>First Name</label>
+          <input class="inp" type="text" placeholder="Ahmed" required>
+        </div>
+        <div class="fg">
+          <label>Last Name</label>
+          <input class="inp" type="text" placeholder="Al-Rashid" required>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label>Email Address</label>
+        <input class="inp" type="email" placeholder="you@email.com" required>
+      </div>
+
+      <div class="fg">
+        <label>Phone Number <span style="font-weight:400;font-size:.7rem;opacity:.6">(optional)</span></label>
+        <input class="inp" type="tel" placeholder="+1 555 000 0000">
+      </div>
+
+      <div class="fg">
+        <label>Which course are you interested in?</label>
+        <select class="inp">
+          <option value="">Select a course…</option>
+          <option>AI Prompt Engineering Mastery — $30</option>
+          <option>Full-Stack Web Development Bootcamp — $45</option>
+          <option>Digital Marketing & Growth Hacking — Free</option>
+        </select>
+      </div>
+
+      <div class="fg">
+        <label>Why do you want to join? <span style="color:var(--red)">*</span></label>
+        <textarea class="inp" rows="4" placeholder="Tell us about your goals, background, and what you hope to achieve…" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.9rem;font-size:.95rem;border-radius:12px;margin-top:.5rem">
+        Submit Request &nbsp;<i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+
+    <div style="text-align:center;margin-top:1.25rem;font-size:.82rem;color:var(--text2)">
+      Already have an account? <a href="login.html" style="color:var(--accent);font-weight:600">Sign in here</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
