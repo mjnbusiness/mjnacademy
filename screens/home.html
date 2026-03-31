@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJN Academy — Home</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="base.css">
+<style>
+/* ── HERO ── */
+.hero-wrap {
+  position: relative; overflow: hidden;
+  padding: 7rem 2rem 4rem; text-align: center;
+  max-width: 1240px; margin: 0 auto;
+}
+.hero-glow {
+  position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 420px;
+  background: radial-gradient(ellipse at center, rgba(255,107,0,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(255,107,0,.1); border: 1px solid rgba(255,107,0,.3);
+  color: var(--accent); padding: .35rem 1rem; border-radius: 100px;
+  font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+  margin-bottom: 2rem; text-transform: uppercase;
+}
+.hero-badge i { font-size: .7rem; }
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 900; line-height: 1.08; letter-spacing: -.04em;
+  margin-bottom: 1.4rem;
+}
+.hero h1 .hl { color: var(--accent); }
+.hero-sub {
+  color: var(--text2); font-size: 1.05rem; max-width: 520px;
+  margin: 0 auto 2.5rem; line-height: 1.8;
+}
+.hero-btns { display: flex; justify-content: center; gap: .85rem; flex-wrap: wrap; }
+.btn-hero { padding: .85rem 2rem; font-size: .95rem; border-radius: 12px; }
+
+/* ── STATS ── */
+.stats-bar {
+  display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+  padding: 2.5rem 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin: 0 0 4rem; background: var(--bg2);
+}
+.stat { text-align: center; }
+.stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; }
+.stat-lbl { font-size: .8rem; color: var(--text2); margin-top: .25rem; font-weight: 500; }
+
+/* ── COURSES SECTION ── */
+.courses-wrap { max-width: 1240px; margin: 0 auto; padding: 0 2rem 6rem; }
+.sec-hd {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 2rem; gap: 1rem;
+}
+.sec-hd h2 { font-size: 1.65rem; font-weight: 800; letter-spacing: -.02em; }
+.sec-hd p  { font-size: .85rem; color: var(--text2); }
+
+/* ── COURSE CARDS GRID ── */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); gap: 1.5rem; }
+
+.course-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+  display: flex; flex-direction: column;
+}
+.course-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+  border-color: rgba(255,107,0,.25);
+}
+.card-thumb {
+  width: 100%; height: 200px; object-fit: cover;
+  background: linear-gradient(135deg, #1a0a00, #2d1200);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.card-thumb-img { width: 100%; height: 200px; object-fit: cover; }
+.card-thumb-ph {
+  height: 200px; width: 100%;
+  background: linear-gradient(135deg, rgba(255,107,0,.2) 0%, rgba(255,107,0,.04) 100%);
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: .5rem;
+}
+.card-thumb-ph i { font-size: 2.8rem; color: var(--accent); opacity: .7; }
+.card-thumb-ph span { font-size: .72rem; color: var(--text2); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+
+.card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.card-tag {
+  font-size: .7rem; font-weight: 700; color: var(--accent);
+  text-transform: uppercase; letter-spacing: .07em; margin-bottom: .6rem;
+}
+.card-body h3 { font-size: 1.1rem; font-weight: 700; line-height: 1.4; margin-bottom: .6rem; }
+.card-body p  { font-size: .85rem; color: var(--text2); line-height: 1.7; flex: 1; margin-bottom: 1.4rem; }
+.card-ft {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1rem; border-top: 1px solid var(--border); margin-top: auto;
+}
+.price { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+.price-free { color: var(--green); }
+.card-meta { display: flex; gap: .5rem; align-items: center; font-size: .78rem; color: var(--text2); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-wrap { padding: 4rem 1.5rem 3rem; }
+  .courses-wrap { padding: 0 1.5rem 4rem; }
+  .stats-bar { gap: 2rem; }
+  .grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero-btns { flex-direction: column; align-items: stretch; }
+  .btn-hero { text-align: center; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <nav class="nav">
+    <a href="home.html" class="logo">
+      <img src="D:\\mjn_agency\\mjnacademy\\website\\mjnacademy\\media\\logo.svg" alt="MJN Academy Logo">
+    </a>
+    <div class="nav-right">
+      <button class="icon-btn" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <a href="login.html" class="btn btn-ghost btn-sm"><i class="fa-regular fa-user"></i> Login</a>
+      <a href="request.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-bolt"></i> Get Access</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section>
+  <div class="hero-wrap fade-up">
+    <div class="hero-glow"></div>
+    <div class="hero-badge"><i class="fa-solid fa-fire"></i> Invite-only · Limited spots</div>
+    <h1>Master the Skills<br>of <span class="hl">Tomorrow</span>, Today</h1>
+    <p class="hero-sub">Premium courses in AI, prompt engineering, and web development — taught by practitioners, built for real results.</p>
+    <div class="hero-btns">
+      <a href="request.html" class="btn btn-primary btn-hero"><i class="fa-solid fa-user-plus"></i> Request Account</a>
+      <a href="#courses" class="btn btn-outline btn-hero"><i class="fa-solid fa-play-circle"></i> Browse Courses</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">12+</div><div class="stat-lbl">Expert Courses</div></div>
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-lbl">Active Learners</div></div>
+  <div class="stat"><div class="stat-num">95%</div><div class="stat-lbl">Satisfaction Rate</div></div>
+  <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Lifetime Access</div></div>
+</div>
+
+<!-- COURSES -->
+<section id="courses" class="courses-wrap">
+  <div class="sec-hd">
+    <div>
+      <h2>Available Courses</h2>
+      <p>All courses are self-paced with lifetime access</p>
+    </div>
+    <span class="badge badge-orange"><i class="fa-solid fa-layer-group"></i> 3 Courses</span>
+  </div>
+
+  <div class="grid">
+
+    <!-- Card 1 -->
+    <div class="course-card">
+      <div class="card-thumb">
+        <div class="card-thumb-ph">
+          <i class="fa-solid fa-robot"></i>
+          <span>AI & Prompts</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-tag"><i class="fa-solid fa-circle-dot"></i> Course</div>
+        <h3>AI Prompt Engineering Mastery</h3>
+        <p>Learn to craft powerful prompts and build full websites with AI. Master the art of communicating with LLMs to accelerate your workflow.</p>
+        <div class="card-ft">
+          <div>
+            <span class="price">$30</span>
+            <div class="card-meta" style="margin-top:.2rem"><i class="fa-regular fa-clock"></i> 8 hours &nbsp;·&nbsp; <i class="fa-solid fa-video"></i> 24 lessons</div>
+          </div>
+          <button class="btn btn-primary btn-sm">Access <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="course-card">
+      <div class="card-thumb">
+        <div class="card-thumb-ph" style="background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(99,102,241,.04))">
+          <i class="fa-solid fa-code" style="color:#818cf8"></i>
+          <span>Web Dev</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" style="color:#818cf8"><i class="fa-solid fa-circle-dot"></i> Course</div>
+        <h3>Full-Stack Web Development Bootcamp</h3>
+        <p>From zero to hero. Build real-world applications using modern technologies — React, Node.js, PostgreSQL, and deployment pipelines.</p>
+        <div class="card-ft">
+          <div>
+            <span class="price">$45</span>
+            <div class="card-meta" style="margin-top:.2rem"><i class="fa-regular fa-clock"></i> 20 hours &nbsp;·&nbsp; <i class="fa-solid fa-video"></i> 60 lessons</div>
+          </div>
+          <button class="btn btn-primary btn-sm">Access <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="course-card">
+      <div class="card-thumb">
+        <div class="card-thumb-ph" style="background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(34,197,94,.03))">
+          <i class="fa-solid fa-chart-line" style="color:#4ade80"></i>
+          <span>Business</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" style="color:#4ade80"><i class="fa-solid fa-circle-dot"></i> Course</div>
+        <h3>Digital Marketing & Growth Hacking</h3>
+        <p>Grow your online business using proven frameworks. SEO, paid ads, email funnels, and conversion rate optimization explained clearly.</p>
+        <div class="card-ft">
+          <div>
+            <span class="price price-free">Free</span>
+            <div class="card-meta" style="margin-top:.2rem"><i class="fa-regular fa-clock"></i> 5 hours &nbsp;·&nbsp; <i class="fa-solid fa-video"></i> 18 lessons</div>
+          </div>
+          <button class="btn btn-primary btn-sm" style="background:var(--green)">Access <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
