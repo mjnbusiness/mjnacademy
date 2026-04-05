@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tg" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MJN Academy · Номнавис</title>
+  <!-- FIXED CSP: added connect-src for Supabase -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://qfuiotahocgknxhcjylh.supabase.co; script-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline' https://qfuiotahocgknxhcjylh.supabase.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://player.mediadelivery.net; upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="stylesheet" href="lstyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    /* Modal styles (unchanged) */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.3s, opacity 0.3s;
+    }
+    .modal-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-card p {
+      margin: 20px 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--fg-2);
+    }
+    .modal-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .modal-btn:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-bg-shape"></div>
+  <div class="login-card">
+    <div class="login-header">
+      <a href="../index.html" class="brand-logo">
+        <img src="../media/logosign.svg" class="brand-logo" width="50px">
+      </a>
+    </div>
+
+    <h2 class="form-title">Номнавис дар рӯйхати интизорӣ</h2>
+    <p class="form-subtitle">Пас аз сабт, админ бо шумо тамос мегирад ва пардохтро тасдиқ мекунад.</p>
+
+    <form id="waitlistForm">
+      <div class="input-group">
+        <label for="fullName">Номи пурра</label>
+        <input type="text" id="fullName" placeholder="Аҳмад Раҳимов" maxlength="100" required>
+      </div>
+      <div class="input-group">
+        <label for="phone">Рақами телефон</label>
+        <input type="tel" id="phone" placeholder="+992 XX XXX XX XX" pattern="^\+992[0-9]{9}$" required>
+      </div>
+      <div class="input-group">
+        <label for="regEmail">Суроғаи Email</label>
+        <input type="email" id="regEmail" placeholder="example@gmail.com" maxlength="255" required>
+      </div>
+      <div class="input-group">
+        <label for="regUsername">Номи корбарӣ (Username)</label>
+        <input type="text" id="regUsername" placeholder="ahmad_2026" pattern="^[a-zA-Z0-9_]{3,30}$" required>
+        <span id="usernameStatus" class="field-status"></span>
+      </div>
+      <div class="form-options">
+        <label class="checkbox-label">
+          <input type="checkbox" id="termsCheckbox" required> <span>Ман бо <a href="#">Шартҳо</a> ва <a href="#">Сиёсати махфият</a> розӣ ҳастам</span>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Номнавис →</button>
+    </form>
+
+    <div class="redirect-login">
+      <p>Аллакай ҳисоб доред? <a href="login.html" class="login-link">Вуруд ба система</a></p>
+    </div>
+
+    <div class="login-footer">
+      <p>© 2026 MJN Academy · Тавонмандсозии офарандагони оянда</p>
+    </div>
+  </div>
+</div>
+
+<div id="successModal" class="modal-overlay">
+  <div class="modal-card">
+    <h3 style="color: var(--accent);">✅ Номнавис муваффақ!</h3>
+    <p>Маълумоти шумо қабул шуд.<br>Админ пардохтро тасдиқ мекунад ва ба шумо занг мезанад.</p>
+    <button id="modalOkBtn" class="modal-btn">OK</button>
+  </div>
+</div>
+
+<script src="regscreen.js"></script>
+</body>
+</html>

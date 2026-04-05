@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tg" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MJN Academy · Вуруд</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline' https://qfuiotahocgknxhcjylh.supabase.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://player.mediadelivery.net; upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="stylesheet" href="lstyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-bg-shape"></div>
+  <div class="login-card">
+    <div class="login-header">
+      <a href="../index.html" class="brand-logo">
+        <img src="../media/logosign.svg" class="brand-logo" width="50px"></img>
+      </a>
+    </div>
+
+    <h2 class="form-title">Вуруд ба ҳисоб</h2>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="loginIdentifier">Email ё Номи корбарӣ</label>
+        <input type="text" id="loginIdentifier" placeholder="намуна@mjnacademy.com ё ahmad_2026" required>
+      </div>
+      <div class="input-group">
+        <label for="loginPassword">Рамз</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" required>
+      </div>
+      <div class="form-options">
+        <label class="checkbox-label">
+          <input type="checkbox" id="rememberMe"> <span>Манро дар ёд дор</span>
+        </label>
+        <a href="#" id="forgotLink" class="forgot-link">Рамзро фаромӯш кардед?</a>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Вуруд →</button>
+    </form>
+
+    <!-- Redirect to registration -->
+    <div class="redirect-signup">
+      <p>Донишҷӯи нав? <a href="regscreen.html" class="signup-link">Номнавис шавед</a></p>
+    </div>
+
+    <div class="login-footer">
+      <p>© 2026 MJN Academy · Тавонмандсозии офарандагони оянда</p>
+    </div>
+  </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
